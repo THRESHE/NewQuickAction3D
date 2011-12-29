@@ -178,23 +178,22 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		
 		final int pos 		=  mChildPos;
 		final int actionId 	= action.getActionId();
-		
-		container.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (mItemClickListener != null) {
+
+        container.setOnClickListener(new OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                if (mItemClickListener != null)
                     mItemClickListener.onItemClick(QuickAction.this, pos, actionId);
-                }
-				
-                if (!getActionItem(pos).isSticky()) {  
-                	mDidAction = true;
-                	
+                if (!getActionItem(pos).isSticky())
+                {
+                    mDidAction = true;
                     dismiss();
                 }
-			}
-		});
-		
-		container.setFocusable(true);
+            }
+        });
+
+        container.setFocusable(true);
 		container.setClickable(true);
 			 
 		if (mOrientation == HORIZONTAL && mChildPos != 0) {
